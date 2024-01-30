@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros - Lista</title>
+</head>
+<body>
+    <div style="width: 1000px; margin: 20px auto;">
+        <h2 href="#" style="margin-left: 30%;">Lista de Carross</h2>
+        <a href="{% url 'register' %}" style="margin-left:75%;">Adicionar Carro</a>
+        <br>
+    {% for alugar_carro in alugar_carros %}
+    <div>
+        <h3>Modelo: {{ alugar_carro.modelo }}</h3>
+        <img src="media/{{ alugar_carro.foto }}" width="300" heigth="300">
+        <p>Descrição: {{ alugar_carro.descricao }}</p>
+        <p>Ano de Fabricacao: {{ alugar_carro.ano_fabricacao }}</p>
+        <p>valor: {{ alugar_carro.valor }}</p>
+        <span>Avaliação: {{ alugar_carro.avaliacao }}</span>
+        <p><a class="btn btn-danger" href="{% url 'delete' alugar_carro.id %}">Deletar</a></p>
+    {% endfor %}
+    </div>
+</body>
+</html>
