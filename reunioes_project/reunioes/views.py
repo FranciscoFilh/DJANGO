@@ -22,8 +22,8 @@ def register(request):
     return render(request, 'reunioes/register.html', { 'form': form })
 
 def delete_reuniao(request, id):
-    comida_consumida = Reuniao.objects.get(id=id)
+    reunioes = Reuniao.objects.get(id=id)
     if request.method == 'POST':
-        comida_consumida.delete()
+        reunioes.delete()
         return redirect('/')
     return render(request, 'reunioes/delete.html')
