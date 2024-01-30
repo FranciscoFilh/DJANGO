@@ -1,0 +1,31 @@
+{% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Filmes</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'cadastro' %}" style="margin-left:75%;">Adicionar Filme</a>
+        <div clas="row">
+            {% for filme in filmes %}
+            <div class="col">
+                <img src="media/{{ filme.imagem }}" class="img-thumbnail" all="Capa do Filme AQUI">
+                <h3>Titulo: {{ filme.titulo }}</h3>
+                <h4>Diretor: {{ filme.diretor }}</h4>
+                <p>Sinopse: {{ filme.sinopse }}</p>
+                <spam>Ano de Laçamento: {{ filme.ano_lacamento }}</spam><br>
+                <spam>Duração: {{ filme.duracao }} min</spam><br>
+                <spam>Genero: {{ filme.get_genero_display }}</spam><br>
+                <p><a class="btn btn-danger" href="{% url 'delete' filme.id %}">Deletar</a></p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>
