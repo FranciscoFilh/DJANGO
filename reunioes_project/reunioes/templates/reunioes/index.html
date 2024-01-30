@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Reuniões - Lista</title>
+</head>
+<body>
+    <div style="width: 1000px; margin: 20px auto;">
+        <h2 href="#" style="margin-left: 30%;">Lista de Reuniões</h2>
+        <a href="{% url 'register' %}" style="margin-left:75%;">Adicionar Nova Reunião</a>
+        <br>
+    {% for reuniao in reunioes %}
+    <div>
+        <h3>Titulo da reunião: {{ reuniao.titulo }} </h3>
+        <p>Descrição da reunião: {{ reuniao.descricao }} </p>
+        <p>Local da reunião: {{ reuniao.local }} </p>
+        <p>Nomes dos Participantes: {{ reuniao.nome_do_participante }} </p>
+        <p>Dia da Reunião: {{ reuniao.dia }} </p>
+        <p>Horário da Reunião: {{ reuniao.horario }} </p>
+        <p><a class="btn btn-danger" href="{% url 'delete' reuniao.id %}">Deletar</a></p>
+    {% endfor %}
+    </div>
+</body>
+</html>
