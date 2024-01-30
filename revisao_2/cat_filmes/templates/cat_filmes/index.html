@@ -10,20 +10,20 @@
 </head>
 <body>
     <div class="container">
-        <a href="{% url 'cadastro' %}" style="margin-left:75%;">Adicionar Filme</a>
-        <div clas="row">
+        <a href="{% url 'cadastro' %}">Cadastrar Filme</a>
+        <div class="row">
             {% for filme in filmes %}
-            <div class="col">
-                <img src="media/{{ filme.imagem }}" class="img-thumbnail" all="Capa do Filme AQUI">
-                <h3>Titulo: {{ filme.titulo }}</h3>
-                <h4>Diretor: {{ filme.diretor }}</h4>
+            <div style="width: 300px; display: inline-block">
+                <img src="media/{{ filme.imagem }}" class="img-thumbnail" alt="Capa do Filme">
+                <h4>TITULO: {{ filme.titulo }}</h4>
+                <h6>Diretor: {{ filme.diretor }}</h6>
                 <p>Sinopse: {{ filme.sinopse }}</p>
-                <spam>Ano de Laçamento: {{ filme.ano_lacamento }}</spam><br>
-                <spam>Duração: {{ filme.duracao }} min</spam><br>
-                <spam>Genero: {{ filme.get_genero_display }}</spam><br>
-                <p><a class="btn btn-danger" href="{% url 'delete' filme.id %}">Deletar</a></p>
+                <span>Ano de Lançamento: {{ filme.ano_lacamento }}</span><br>
+                <span>Duração: {{ filme.duracao }}min </span><br>
+                <span>Genero: {{ filme.get_genero_display }}</span><br>
+                <a class="btn btn-danger" href="{% url 'deletar' filme.id %}">Deletar Filme</a>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
     {% bootstrap_javascript %}
