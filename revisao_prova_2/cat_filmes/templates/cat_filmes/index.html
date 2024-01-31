@@ -13,7 +13,7 @@
         <a href="{% url 'cadastro' %}">Cadastrar Filme</a>
         <div class="row">
             {% for filme in filmes %}
-            <div style="width: 300px; display: inline-block">
+            <div style="width: 360px; display: inline-block">
                 <img src="media/{{ filme.imagem }}" class="img-thumbnail" alt="Capa do Filme">
                 <h4>TITULO: {{ filme.titulo }}</h4>
                 <h6>Diretor: {{ filme.diretor }}</h6>
