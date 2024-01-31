@@ -1,0 +1,31 @@
+{% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas - Lista</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <h2 style="margin-left: 30%">Listas de consultas</h2>
+        <a class="btn btn btn-success" href="{% url 'cadastro' %}" style="margin-left: 80%">Cadastrar consulta</a>
+        <div class="row">
+            {% for consulta in consultas %}
+            <div style="width: 300px; display: inline-block">
+                <h5>Nome: {{ consulta.nome }}</h5>
+                <p>CPF: {{ consulta.cpf }}</p>
+                <p>Telefone: {{ consulta.telefone }}</p>
+                <p>Turno: {{ consulta.get_turno_display }}</p>
+                <p>Horário da consulta: {{ consulta.horario_consulta }}</p>
+                <p>Dia da consulta: {{ consulta.dia_consulta }}</p>
+                <a class="btn btn-danger" href="{% url 'deletar' consulta.id %}">Deletar</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>

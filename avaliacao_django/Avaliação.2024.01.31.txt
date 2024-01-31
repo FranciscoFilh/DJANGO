@@ -1,0 +1,1 @@
+Você foi contratada(o) pela Rosto & Corpo uma clinica de estetica corporal. Eles estão precisando de um APP que faça o gerenciamento das consultas da clinica. Então crie uma estrutura DJANGO que mostre as consultas agendadas, delete alguma consulta agendada, cadastre novas consultas e que tenha uma API para ser consumida por outro aplicativi da clinica.
