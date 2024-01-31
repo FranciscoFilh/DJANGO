@@ -1,0 +1,60 @@
+1° Criar ambiente virtual: 
+-> python -m virtualenv .
+
+2° Ativar o ambiente virtual: 
+-> scripts/activate
+
+	* Desativar ambiente virtual:
+	-> scripts/deactivate  
+
+3° Instalar o DJANGO no ambiente virtual: 
+-> pip install django
+
+	* API em Django:
+	-> pip install djangorestframework
+
+4° Criar o CORE do projeto: 
+-> django-admin startproject core .
+
+5° Alterar no arquivo SETTINGS.PY a opção: 
+-> LANGUAGE_CODE = 'pt-br'
+-> TIME_ZONE = 'America/Fortaleza'
+
+6° Validar se o serviço está OK com o comando: 
+-> python manage.py runserver 8000
+
+7° No seu navegar acesse: 
+-> http://localhost:8000/
+
+	* para acessar o ambiente de administração do DJANGO use: 
+	-> http://localhost:8000/admin
+
+8° Apos validar o serviço saia e execute o comando de migrações do DJANGO: 
+-> python manage.py migrate
+	
+	* Depois que fizer o models:
+	-> python manage.py makemigrations
+
+9° Agora devemos criar o usuário de acesso do ambiente de administração: 
+-> python .\manage.py createsuperuser
+
+10° Criar o app: 
+-> python .\manage.py startapp <nome_do_APP>
+
+11° Adicionar o APP no arquivo SETINGS.PY: 
+-> INSTALLED_APPS
+
+12° Adicionar a rota do meu arquivo URLS.PY no CORE: 
+-> path('', include('<nome_do_APP>.urls')),
+
+13° Conectar o meu arquivo URLS.PY do APP com a VIEW:
+
+___________________________________________________________________________________________________________
+* fazer a implementação nos arquivos forms:
+-> pip install django-bootstrap-v5
+
+* colocar imagens 
+-> pip install pillow 
+
+* quais as instalacoes precisa no projeto:
+-> pip freeze > requirements.txt
